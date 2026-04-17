@@ -179,8 +179,6 @@ The video demonstration shows the Postman tests for:
 * 403 Forbidden
 * 500 Internal Server Error without stack trace
 
-**Video reference:** YOUR VIDEO FILE NAME OR BLACKBOARD NOTE
-
 ## 7. Report Answers
 
 ### Part 1.1 — JAX-RS Resource Lifecycle
