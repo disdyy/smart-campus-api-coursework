@@ -8,7 +8,7 @@
 
 **Student ID:** 20240002 / w2119673
 
-**GitHub Repository:** [YOUR_GITHUB_LINK_HERE](https://github.com/disdyy/smart-campus-api-coursework.git)
+**GitHub Repository:** [(https://github.com/disdyy/smart-campus-api-coursework.git)]
 
 ## 1. Overview
 
