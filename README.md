@@ -30,7 +30,7 @@ This project uses **in-memory data structures only** such as maps and lists. It 
 
 Base API path:
 
-*`/api/v1`
+`/api/v1`
 
 ## 2. Technology Stack
 
@@ -53,13 +53,13 @@ Base API path:
 6. Right-click the project and click **Run**.
 7. The API will run at:
 
-*`http://localhost:8080/smart-campus-api/api/v1`
+`http://localhost:8080/smart-campus-api/api/v1`
 
 ### Using Maven
 
 In the project root, run:
 
-*`mvn clean install`
+`mvn clean install`
 
 Then deploy the generated WAR file to Tomcat.
 
@@ -96,27 +96,75 @@ Then deploy the generated WAR file to Tomcat.
 
 ### 1. Discovery endpoint
 
-*`curl -X GET http://localhost:8080/smart-campus-api/api/v1`
+```bash
+curl -X GET "http://localhost:8080/smart-campus-api/api/v1"
+```
 
 ### 2. Create a room
 
-*`curl -X POST http://localhost:8080/smart-campus-api/api/v1/rooms -H "Content-Type: application/json" -d '{"id":"LIB-301","name":"Library Quiet Study","capacity":80}'`
+```bash
+curl -X POST "http://localhost:8080/smart-campus-api/api/v1/rooms" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "id": "LIB-301",
+    "name": "Library Quiet Study",
+    "capacity": 80
+  }'
+```
 
 ### 3. Get all rooms
 
-*`curl -X GET http://localhost:8080/smart-campus-api/api/v1/rooms`
+```bash
+curl -X GET "http://localhost:8080/smart-campus-api/api/v1/rooms"
+```
 
-### 4. Create a valid sensor
+### 4. Get a room by ID
 
-*`curl -X POST http://localhost:8080/smart-campus-api/api/v1/sensors -H "Content-Type: application/json" -d '{"id":"CO2-001","type":"CO2","status":"ACTIVE","currentValue":420.0,"roomId":"LIB-301"}'`
+```bash
+curl -X GET "http://localhost:8080/smart-campus-api/api/v1/rooms/LIB-301"
+```
 
-### 5. Filter sensors by type
+### 5. Create a valid sensor
 
-*`curl -X GET "http://localhost:8080/smart-campus-api/api/v1/sensors?type=CO2"`
+```bash
+curl -X POST "http://localhost:8080/smart-campus-api/api/v1/sensors" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "id": "CO2-001",
+    "type": "CO2",
+    "status": "ACTIVE",
+    "currentValue": 420.0,
+    "roomId": "LIB-301"
+  }'
+```
 
-### 6. Add a sensor reading
+### 6. Filter sensors by type
 
-*`curl -X POST http://localhost:8080/smart-campus-api/api/v1/sensors/CO2-001/readings -H "Content-Type: application/json" -d '{"value":455.7}'`
+```bash
+curl -X GET "http://localhost:8080/smart-campus-api/api/v1/sensors?type=CO2"
+```
+
+### 7. Add a sensor reading
+
+```bash
+curl -X POST "http://localhost:8080/smart-campus-api/api/v1/sensors/CO2-001/readings" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "value": 455.7
+  }'
+```
+
+### 8. Get sensor readings
+
+```bash
+curl -X GET "http://localhost:8080/smart-campus-api/api/v1/sensors/CO2-001/readings"
+```
+
+### 9. Trigger global 500 error
+
+```bash
+curl -X GET "http://localhost:8080/smart-campus-api/api/v1/debug/error"
+```
 
 ## 6. Video Demonstration
 
